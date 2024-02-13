@@ -65,17 +65,13 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ battery_state, "[BATT: %s",    "BAT0"}, 
-	{ battery_perc, "%s%%] ",	"BAT0"},
-	{ cpu_perc, "[CPU: %s%%] ",       NULL},
-	{ ram_perc, "[RAM: %s%%] ",       NULL},
-	{ disk_perc, "[STORAGE: %s%%] ",  "/"},
-	{ netspeed_rx, "[NETSPEEDS: %s R ", "wlan0"},
-	{ netspeed_tx, "%s T] ", "wlan0"},
-	{ wifi_perc, "[WiFi: %s%%] ", "wlan0"},
-	{ run_command, "[VOL: %s%% ", "/bin/sh -c \"amixer get Master | tail -n1 | grep -Po '\\[\\K[^%]*' | head -n1\""},
-	{ run_command, "%s] ", "/bin/bash -c \"if [ -f /tmp/mute ]; then echo MUTED; else echo MASTER; fi\""},
-	{ username, "| %s@", NULL},
-	{ hostname, "%s ", NULL},
-	{ datetime, "%s",           "%F %T" },
+	{ battery_state, "|%s", "BAT0"}, 
+	{ battery_perc, "%s%%|", "BAT0"},
+	{ cpu_perc, "C:%s%%|", NULL},
+	{ ram_perc, "R:%s%%|", NULL},
+	{ wifi_essid, "%s", "wlan0"},
+	{ ipv4, " %s|", "wlan0"},
+	{ run_command, "%s", "/bin/bash -c \"if [ -f /tmp/mute ]; then echo X; else echo V; fi\""},
+	{ run_command, "%s%%|", "/bin/sh -c \"amixer get Master | tail -n1 | grep -Po '\\[\\K[^%]*' | head -n1\""},
+	{ datetime, "%s", "%T" },
 };
