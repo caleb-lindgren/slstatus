@@ -67,11 +67,11 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ battery_state, "%s", "BAT0"}, 
 	{ battery_perc, "%s%%|", "BAT0"},
-	{ cpu_perc, "C:%s%%|", NULL},
-	{ ram_perc, "R:%s%%|", NULL},
-	{ wifi_essid, "%s", "wlan0"},
-	{ ipv4, " %s|", "wlan0"},
+	{ cpu_perc, "C%s%%|", NULL},
+	{ ram_perc, "R%s%%|", NULL},
 	{ run_command, "%s", "/bin/bash -c \"if [ -f /tmp/mute ]; then echo X; else echo V; fi\""},
 	{ run_command, "%s%%|", "/bin/sh -c \"amixer get Master | tail -n1 | grep -Po '\\[\\K[^%]*' | head -n1\""},
+	{ wifi_essid, "%s", "wlan0"},
+	{ ipv4, "%s|", "wlan0"},
 	{ datetime, "%s", "%T" },
 };
