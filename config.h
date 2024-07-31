@@ -69,9 +69,10 @@ static const struct arg args[] = {
 	{ battery_perc, "%s%%|", "BAT0"},
 	{ cpu_perc, "C%s%%|", NULL},
 	{ ram_perc, "R%s%%|", NULL},
-	{ run_command, "%s", "/bin/bash -c \"if [ -f /tmp/mute ]; then echo X; else echo V; fi\""},
+	{ disk_perc, "S%s%%|", "/"},
+	{ run_command, "%s", "/bin/bash -c \"if amixer sget Master | tail -2 | grep -q '\\[on\\]'; then echo V; else echo X; fi\""},
 	{ run_command, "%s%%|", "/bin/sh -c \"amixer get Master | tail -n1 | grep -Po '\\[\\K[^%]*' | head -n1\""},
 	{ wifi_essid, "%s", "wlan0"},
 	{ ipv4, "%s|", "wlan0"},
-	{ datetime, "%s", "%T" },
+	{ datetime, "%s", "%d-%T" },
 };
